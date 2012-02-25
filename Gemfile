@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1'
+gem 'will_paginate', '3.0.3'
 
 group :development do
 	gem 'sqlite3', '1.3.5'
 	gem 'annotate', '~> 2.4.1.beta'
-	gem 'rspec-rails', '2.8.1'
-	gem 'guard-rspec', '0.5.5'
 end
 
 # Bundle edge Rails instead:
@@ -26,15 +26,19 @@ end
 
 gem 'jquery-rails', '2.0.0'
 
+group :test, :development do
+	gem 'rspec-rails', '~> 2.8.rc'
+	gem 'guard-rspec', '0.5.5'
+	gem 'guard-spork', '0.3.2'
+	gem 'spork', '0.9.0'
+end
+
 group :test do
-	gem 'rspec-rails', '2.8.1'
 	gem 'capybara', '1.1.2'
-	gem 'rb-fchange', '0.0.5'
-	gem 'rb-notifu', '0.0.4'
 	gem 'win32console', '1.3.0'
 	gem 'factory_girl_rails', '1.4.0'
-	gem 'cucumber-rails', '1.2.1'
-	gem 'database-cleaner', '0.7.0'
+	#gem 'cucumber-rails', '1.2.1'
+	#gem 'database-cleaner'
 end
 
 group :production do

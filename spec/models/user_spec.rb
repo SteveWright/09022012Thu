@@ -25,9 +25,11 @@ require 'spec_helper'
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
+  it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   
   it { should be_valid }
+  it { should_not be_admin }
   
   it { should respond_to(:authenticate) }
 
@@ -96,10 +98,16 @@ require 'spec_helper'
     it { should_not == user_for_invalid_password }
     specify { user_for_invalid_password.should be_false }
   end
- end
+end
  
- describe "remember token" do
+  describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "with admin attribute set to 'true'" do
+  	before { @user.toggle!(:admin) }
+  	
+  	it { should be_admin }
   end
 end
