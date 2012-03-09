@@ -29,6 +29,7 @@ describe "Micropost pages" do
       it "should create a micropost" do
         expect { click_button "Submit" }.should change(Micropost, :count).by(1)
       end
+    end
   end
       
       describe "micropost destruction" do
@@ -39,5 +40,7 @@ describe "Micropost pages" do
 
       it "should delete a micropost" do
         expect { click_link "delete" }.should change(Micropost, :count).by(-1)
+        end
       end
     end
+end
